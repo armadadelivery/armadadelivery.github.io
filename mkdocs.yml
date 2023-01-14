@@ -1,1 +1,11 @@
-site_name: My Docs
+site_name: Armada Public API
+docs_dir: src
+site_dir: docs
+theme:
+  name: material
+  favicon: img/favicon.png
+  logo: img/favicon.png
+copyright: Copyright &copy; 2016 - 2023 Armada Delivery Solutions
+extra:
+  generator: false
+
