@@ -35,7 +35,7 @@ The body of the request should be in JSON format and include the following param
     * `block`: One of the address components (Required in case no location is provided),
     * `street`: One of the address components (Required in case no location is provided),
     * `buildingNumber`: One of the address components (Required in case no location is provided),
-    * `floor`: One of the address components used ,
+    * `floor`: One of the address components used,
     * `apartment`: One of the address components ,
     * `instructions`: Extra instructions or information to the driver,
     * `amount`: The order Amount used incase of chash payment mean (Required),
@@ -134,6 +134,17 @@ Where:
 * `qrCodeLink`: A link to the QR code, to show to the driver, to scan the delivery in case the scan is not performed within the merchant dasboard,
 * `orderCreatedAt`: Date of the Delivery Creation,
 * `currency`: The currency used for this delivery.
+
+## Canceling orders
+To cancel an order, you will need to make an HTTP POST request to the following endpoint:
+
+```
+http://api.armada.com/v0/deliveries/:id/cancel
+```
+
+Where:
+
+* `id`: The Id Of the delivery within Armada
 
 ## Webhooks
 

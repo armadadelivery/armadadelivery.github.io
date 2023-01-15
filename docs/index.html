@@ -261,6 +261,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#canceling-orders" class="md-nav__link">
+    Canceling orders
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#webhooks" class="md-nav__link">
     Webhooks
   </a>
@@ -356,6 +363,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#canceling-orders" class="md-nav__link">
+    Canceling orders
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#webhooks" class="md-nav__link">
     Webhooks
   </a>
@@ -413,7 +427,7 @@ For that, our shared customer (Subscribed business), needs to:</p>
 <li><code>block</code>: One of the address components (Required in case no location is provided),</li>
 <li><code>street</code>: One of the address components (Required in case no location is provided),</li>
 <li><code>buildingNumber</code>: One of the address components (Required in case no location is provided),</li>
-<li><code>floor</code>: One of the address components used ,</li>
+<li><code>floor</code>: One of the address components used,</li>
 <li><code>apartment</code>: One of the address components ,</li>
 <li><code>instructions</code>: Extra instructions or information to the driver,</li>
 <li><code>amount</code>: The order Amount used incase of chash payment mean (Required),</li>
@@ -504,6 +518,14 @@ For that, our shared customer (Subscribed business), needs to:</p>
 <li><code>qrCodeLink</code>: A link to the QR code, to show to the driver, to scan the delivery in case the scan is not performed within the merchant dasboard,</li>
 <li><code>orderCreatedAt</code>: Date of the Delivery Creation,</li>
 <li><code>currency</code>: The currency used for this delivery.</li>
+</ul>
+<h2 id="canceling-orders">Canceling orders</h2>
+<p>To cancel an order, you will need to make an HTTP POST request to the following endpoint:</p>
+<pre><code>http://api.armada.com/v0/deliveries/:id/cancel
+</code></pre>
+<p>Where:</p>
+<ul>
+<li><code>id</code>: The Id Of the delivery within Armada</li>
 </ul>
 <h2 id="webhooks">Webhooks</h2>
 <p>To receive real-time updates on the status of orders placed through your app, you can provide a webhook URL in the Armada delivery Merchant UI. Our API will send a POST request to this URL any time the status of an order changes, the order object as described above with the updated <code>orderStatus</code> property.</p>
