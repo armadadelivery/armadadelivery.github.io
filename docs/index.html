@@ -261,8 +261,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#canceling-orders" class="md-nav__link">
-    Canceling orders
+  <a href="#canceling-orders-beta" class="md-nav__link">
+    Canceling orders beta
   </a>
   
 </li>
@@ -363,8 +363,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#canceling-orders" class="md-nav__link">
-    Canceling orders
+  <a href="#canceling-orders-beta" class="md-nav__link">
+    Canceling orders beta
   </a>
   
 </li>
@@ -431,6 +431,7 @@ For that, our shared customer (Subscribed business), needs to:</p>
 <li><code>apartment</code>: One of the address components ,</li>
 <li><code>instructions</code>: Extra instructions or information to the driver,</li>
 <li><code>amount</code>: The order Amount used incase of chash payment mean (Required),</li>
+<li><code>scheduled_at</code>: The order datetime you want the order to start at,</li>
 <li><code>paymentType</code>: It should be 'paid' or 'cash',</li>
 <li><code>location</code>: The location Of the customer { latitude: '', longitude: '' } (Required in case the Full address is not provided).</li>
 </ul>
@@ -519,7 +520,7 @@ For that, our shared customer (Subscribed business), needs to:</p>
 <li><code>orderCreatedAt</code>: Date of the Delivery Creation,</li>
 <li><code>currency</code>: The currency used for this delivery.</li>
 </ul>
-<h2 id="canceling-orders">Canceling orders</h2>
+<h2 id="canceling-orders-beta">Canceling orders <code>beta</code></h2>
 <p>To cancel an order, you will need to make an HTTP POST request to the following endpoint:</p>
 <pre><code>http://api.armada.com/v0/deliveries/:id/cancel
 </code></pre>

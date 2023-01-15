@@ -39,6 +39,7 @@ The body of the request should be in JSON format and include the following param
     * `apartment`: One of the address components ,
     * `instructions`: Extra instructions or information to the driver,
     * `amount`: The order Amount used incase of chash payment mean (Required),
+    * `scheduled_at`: The order datetime you want the order to start at,
     * `paymentType`: It should be 'paid' or 'cash',
     * `location`: The location Of the customer { latitude: '', longitude: '' } (Required in case the Full address is not provided).
 
@@ -135,7 +136,7 @@ Where:
 * `orderCreatedAt`: Date of the Delivery Creation,
 * `currency`: The currency used for this delivery.
 
-## Canceling orders
+## Canceling orders `beta`
 To cancel an order, you will need to make an HTTP POST request to the following endpoint:
 
 ```
