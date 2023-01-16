@@ -39,7 +39,7 @@ The body of the request should be in JSON format and include the following param
     * `apartment`: One of the address components ,
     * `instructions`: Extra instructions or information to the driver,
     * `amount`: The order Amount used incase of chash payment mean (Required),
-    * `scheduled_at`: The order datetime you want the order to start at,
+    * `scheduled_at`: The order datetime you want the order to start at. The provided date should imperatively be later than now. If it is earlier than now + 30 minutes, the order will be submitted as a live one,
     * `paymentType`: It should be 'paid' or 'cash',
     * `location`: The location Of the customer { latitude: '', longitude: '' } (Required in case the Full address is not provided).
 
