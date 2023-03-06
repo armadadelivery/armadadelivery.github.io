@@ -11,7 +11,7 @@
       
       
       <link rel="icon" href="img/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.4">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.1">
     
     
       
@@ -19,10 +19,10 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.9c788c91.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.402914a4.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.2505c338.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.a0c5b2b5.min.css">
       
       
 
@@ -75,7 +75,9 @@
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="." title="Armada Public API" class="md-header__button md-logo" aria-label="Armada Public API" data-md-component="logo">
       
@@ -130,7 +132,7 @@
           <div class="md-search-result__meta">
             Initializing search
           </div>
-          <ol class="md-search-result__list"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
         </div>
       </div>
     </div>
@@ -183,7 +185,7 @@
   
     <li class="md-nav__item md-nav__item--active">
       
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
         
@@ -424,7 +426,6 @@
                   
 
 
-
 <h1 id="armada-delivery-api-order-placement">Armada Delivery API order placement</h1>
 <p>Welcome to the Armada delivery web app API documentation. Our API allows you to integrate your ordering app with our delivery service, enabling your customers to place orders for delivery directly from your app. This documentation will provide you with all the necessary information to integrate your app with our API, including authentication, request format, and webhooks for real-time updates.</p>
 <h2 id="authentication">Authentication</h2>
@@ -442,6 +443,7 @@ For that, our shared customer (Subscribed business), needs to:</p>
 <p>To place an order, you will need to make an HTTP POST request to the following endpoint:</p>
 <pre><code>http://api.armada.com/v0/deliveries
 </code></pre>
+<p>For the sandbox environment please use the following domain name: <code>https://armada-sandbox-api.herokuapp.com/</code></p>
 <p>The body of the request should be in JSON format and include the following parameters:</p>
 <ul>
 <li><code>platformName</code>: refer to the platform creating the delivery (Required).</li>
@@ -631,10 +633,10 @@ For that, our shared customer (Subscribed business), needs to:</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.ba449ae6.min.js"></script>
+      <script src="assets/javascripts/bundle.b78d2936.min.js"></script>
       
     
   </body>

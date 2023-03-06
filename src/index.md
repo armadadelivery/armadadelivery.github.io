@@ -24,6 +24,8 @@ To place an order, you will need to make an HTTP POST request to the following e
 http://api.armada.com/v0/deliveries
 ```
 
+For the sandbox environment please use the following domain name: `https://armada-sandbox-api.herokuapp.com/`
+
 The body of the request should be in JSON format and include the following parameters:
 
 * `platformName`: refer to the platform creating the delivery (Required).
