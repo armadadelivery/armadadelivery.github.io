@@ -67,6 +67,39 @@ curl --location --request POST 'https://api.armadadelivery.com/v0/deliveries' \
 }'
 ```
 
+For Saudi Arabia users, You just need the `Short Adress` to provide your location:
+
+* `platformName`: refer to the platform creating the delivery (Required).
+* `platformData`: Contains the data required to create the delivery, more details below (Required):
+    * `orderId`: The Id of the Order in the platform (Required),
+    * `name`: The Customer Name (Required),
+    * `phone`: The customer Phone (Required),
+    * `amount`: The order Amount used incase of chash payment mean (Required),
+    * `scheduled_at`: The order datetime you want the order to start at. The provided date should imperatively be later than now. If it is earlier than now + 30 minutes, the order will be submitted as a live one,
+    * `paymentType`: It should be 'paid' or 'cash',
+    * `shortAddress`: The short address provided by the SPL (Required).
+
+Example request:
+
+```bash
+curl --location --request POST 'https://api.armadadelivery.com/v0/deliveries' \
+--header 'Authorization: Key YOUR API KEY' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "platformName": "pos",
+    "platformData": {
+        "orderId": "145as5",
+        "name": "zakaria",
+        "phone": "055445874",
+        "shortAddress": "RRAA2062",
+        "amount": "7.000",
+        "paymentType": "paid"
+    }
+}'
+```
+
+
+
 ### Response
 
 Upon successful completion, our API will return a JSON response with the following parameters:
