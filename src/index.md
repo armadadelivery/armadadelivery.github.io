@@ -67,7 +67,7 @@ curl --location --request POST 'https://api.armadadelivery.com/v0/deliveries' \
 }'
 ```
 
-For Saudi Arabia users, You just need the `Short Adress` to provide your location:
+For Saudi Arabia users, You'll need to provide the `ShortAdress` property to set the customer location:
 
 * `platformName`: refer to the platform creating the delivery (Required).
 * `platformData`: Contains the data required to create the delivery, more details below (Required):

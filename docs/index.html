@@ -11,7 +11,7 @@
       
       
       <link rel="icon" href="img/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.1">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.5">
     
     
       
@@ -19,7 +19,7 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.402914a4.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.7a7fce14.min.css">
       
         
         <link rel="stylesheet" href="assets/stylesheets/palette.a0c5b2b5.min.css">
@@ -484,6 +484,36 @@ For that, our shared customer (Subscribed business), needs to:</p>
     }
 }'
 </code></pre>
+<p>For Saudi Arabia users, You'll need to provide the <code>ShortAdress</code> property to set the customer location:</p>
+<ul>
+<li><code>platformName</code>: refer to the platform creating the delivery (Required).</li>
+<li><code>platformData</code>: Contains the data required to create the delivery, more details below (Required):<ul>
+<li><code>orderId</code>: The Id of the Order in the platform (Required),</li>
+<li><code>name</code>: The Customer Name (Required),</li>
+<li><code>phone</code>: The customer Phone (Required),</li>
+<li><code>amount</code>: The order Amount used incase of chash payment mean (Required),</li>
+<li><code>scheduled_at</code>: The order datetime you want the order to start at. The provided date should imperatively be later than now. If it is earlier than now + 30 minutes, the order will be submitted as a live one,</li>
+<li><code>paymentType</code>: It should be 'paid' or 'cash',</li>
+<li><code>shortAddress</code>: The short address provided by the SPL (Required).</li>
+</ul>
+</li>
+</ul>
+<p>Example request:</p>
+<pre><code class="language-bash">curl --location --request POST 'https://api.armadadelivery.com/v0/deliveries' \
+--header 'Authorization: Key YOUR API KEY' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    &quot;platformName&quot;: &quot;pos&quot;,
+    &quot;platformData&quot;: {
+        &quot;orderId&quot;: &quot;145as5&quot;,
+        &quot;name&quot;: &quot;zakaria&quot;,
+        &quot;phone&quot;: &quot;055445874&quot;,
+        &quot;shortAddress&quot;: &quot;RRAA2062&quot;,
+        &quot;amount&quot;: &quot;7.000&quot;,
+        &quot;paymentType&quot;: &quot;paid&quot;
+    }
+}'
+</code></pre>
 <h3 id="response">Response</h3>
 <p>Upon successful completion, our API will return a JSON response with the following parameters:</p>
 <ul>
@@ -636,7 +666,7 @@ For that, our shared customer (Subscribed business), needs to:</p>
     <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.b78d2936.min.js"></script>
+      <script src="assets/javascripts/bundle.407015b8.min.js"></script>
       
     
   </body>
