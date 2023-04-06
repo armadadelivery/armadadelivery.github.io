@@ -1,0 +1,28 @@
+name: Update Notion status
+on:
+  pull_request_review:
+    types: [submitted]
+jobs:
+  approved:
+    if: github.event.review.state == 'approved'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update Notion status
+        uses: armadadelivery/update-task-status@v1.3
+        with:
+          notion_database_id: ${{ secrets.NOTION_DATABASE_ID }}
+          notion_auth_token: ${{ secrets.NOTION_AUTH_TOKEN }}
+          notion_status: To Merge
+          branch: ${{ github.event.pull_request.head.ref }}
+
+  not-approved:
+    if: github.event.review.state != 'approved'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update Notion status
+        uses: armadadelivery/update-task-status@v1.3
+        with:
+          notion_database_id: ${{ secrets.NOTION_DATABASE_ID }}
+          notion_auth_token: ${{ secrets.NOTION_AUTH_TOKEN }}
+          notion_status: Back to In Progress
+          branch: ${{ github.event.pull_request.head.ref }}

@@ -1,0 +1,16 @@
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  merged:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update Notion status
+        uses: armadadelivery/update-task-status@v1.3
+        with:
+          notion_database_id: ${{ secrets.NOTION_DATABASE_ID }}
+          notion_auth_token: ${{ secrets.NOTION_AUTH_TOKEN }}
+          notion_status: To Deploy
+          branch: ${{ github.event.pull_request.head.ref }}
