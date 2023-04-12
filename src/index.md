@@ -177,7 +177,7 @@ Where:
 To cancel an order, you will need to make an HTTP POST request to the following endpoint:
 
 ```
-http://api.armada.com/v0/deliveries/:id/cancel
+http://api.armada.com/v0/deliveries/:orderCode/cancel
 ```
 
 Where:
