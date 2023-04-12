@@ -45,11 +45,18 @@ The body of the request should be in JSON format and include the following param
     * `paymentType`: It should be 'paid' or 'cash',
     * `location`: The location Of the customer { latitude: '', longitude: '' } (Required in case the Full address is not provided).
 
+For increased security, we recommend including a security key in the headers of your order:
+
+* `order-webhook-key`: Webhook key must be between 12-32 characters. (recommended)
+
+> When you receive an order update via your webhook, the order-webhook-key will be included in the headers as an Authorization key for security purposes. see [webhooks](#webhooks)
+
 Example request:
 
 ```bash
 curl --location --request POST 'https://api.armadadelivery.com/v0/deliveries' \
 --header 'Authorization: Key YOUR API KEY' \
+--header 'order-webhook-key: vE6gH8Rt2L1sK9w' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "platformName": "pos",
@@ -67,23 +74,18 @@ curl --location --request POST 'https://api.armadadelivery.com/v0/deliveries' \
 }'
 ```
 
-For Saudi Arabia users, You'll need to provide the `ShortAdress` property to set the customer location:
+For Saudi Arabia users, You'll need to provide the `shortAdress` property to set the customer location:
 
-* `platformName`: refer to the platform creating the delivery (Required).
-* `platformData`: Contains the data required to create the delivery, more details below (Required):
-    * `orderId`: The Id of the Order in the platform (Required),
-    * `name`: The Customer Name (Required),
-    * `phone`: The customer Phone (Required),
-    * `amount`: The order Amount used incase of chash payment mean (Required),
-    * `scheduled_at`: The order datetime you want the order to start at. The provided date should imperatively be later than now. If it is earlier than now + 30 minutes, the order will be submitted as a live one,
-    * `paymentType`: It should be 'paid' or 'cash',
-    * `shortAddress`: The short address provided by the SPL (Required).
+* `shortAddress`: The short address version of the national-address (Required).
+
+> You don't need to put "area, block, street, buildingNumber, floor, apartment, instructions", Just a shortAddress.
 
 Example request:
 
 ```bash
 curl --location --request POST 'https://api.armadadelivery.com/v0/deliveries' \
 --header 'Authorization: Key YOUR API KEY' \
+--header 'order-webhook-key: vE6gH8Rt2L1sK9w' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "platformName": "pos",
@@ -212,6 +214,10 @@ The list of the statuses:
 * `qrCodeLink`: A link to the QR code, to show to the driver, to scan the delivery in case the scan is not performed within the merchant dasboard,
 * `orderCreatedAt`: Date of the Delivery Creation,
 * `currency`: The currency used for this delivery.
+
+In headers:
+
+* `Authorization`: The value of your order-webhook-key you provide when you create the order. 
 
 ## Sandbox Access
 Through our sandbox environment, you'll be able to play around with the integration and test it for your app.
