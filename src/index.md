@@ -21,7 +21,7 @@ Eg: `Key somerandomkey-sdfsdfqmk`
 To place an order, you will need to make an HTTP POST request to the following endpoint:
 
 ```
-http://api.armada.com/v0/deliveries
+http://api.armadadelivery.com/v0/deliveries
 ```
 
 For the sandbox environment please use the following domain name: `https://armada-sandbox-api.herokuapp.com/`
@@ -149,7 +149,7 @@ Example response:
 To fetch an order, you will need to make an HTTP GET request to the following endpoint:
 
 ```
-http://api.armada.com/v0/deliveries/:orderCode
+http://api.armadadelivery.com/v0/deliveries/:orderCode
 ```
 
 Where:
@@ -177,7 +177,7 @@ Where:
 To cancel an order, you will need to make an HTTP POST request to the following endpoint:
 
 ```
-http://api.armada.com/v0/deliveries/:orderCode/cancel
+http://api.armadadelivery.com/v0/deliveries/:orderCode/cancel
 ```
 
 Where:
