@@ -5,7 +5,15 @@ theme:
   name: material
   favicon: img/favicon.png
   logo: img/favicon.png
-copyright: Copyright &copy; 2016 - 2023 Armada Delivery Solutions
+copyright: Copyright &copy; 2016 - 2024 Armada Delivery Solutions
 extra:
   generator: false
+nav:
+  - 'index.md'
+  - 'authentication.md'
+  - 'estimation.md'
+  - 'branches_management.md'
+  - 'order_placement.md'
+  - 'webhooks.md'
+  - 'sandbox_access.md'
 

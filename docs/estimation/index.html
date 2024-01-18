@@ -9,18 +9,22 @@
       
       
       
+        <link rel="prev" href="../authentication/">
       
       
-      <link rel="icon" href="/img/favicon.png">
+        <link rel="next" href="../branches_management/">
+      
+      
+      <link rel="icon" href="../img/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.4">
     
     
       
-        <title>Armada Public API</title>
+        <title>Estimation (time and fees) - Armada Public API</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.50c56a3b.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.50c56a3b.min.css">
       
       
 
@@ -39,7 +43,7 @@
       
     
     
-    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -57,6 +61,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#estimation-time-and-fees" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -69,9 +78,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/." title="Armada Public API" class="md-header__button md-logo" aria-label="Armada Public API" data-md-component="logo">
+    <a href=".." title="Armada Public API" class="md-header__button md-logo" aria-label="Armada Public API" data-md-component="logo">
       
-  <img src="/img/favicon.png" alt="logo">
+  <img src="../img/favicon.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -88,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Estimation (time and fees)
             
           </span>
         </div>
@@ -163,9 +172,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="Armada Public API" class="md-nav__button md-logo" aria-label="Armada Public API" data-md-component="logo">
+    <a href=".." title="Armada Public API" class="md-nav__button md-logo" aria-label="Armada Public API" data-md-component="logo">
       
-  <img src="/img/favicon.png" alt="logo">
+  <img src="../img/favicon.png" alt="logo">
 
     </a>
     Armada Public API
@@ -180,7 +189,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -200,7 +209,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/authentication/" class="md-nav__link">
+      <a href="../authentication/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -217,10 +226,19 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/estimation/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -229,6 +247,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -240,7 +259,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/branches_management/" class="md-nav__link">
+      <a href="../branches_management/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -260,7 +279,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/order_placement/" class="md-nav__link">
+      <a href="../order_placement/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -280,7 +299,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/webhooks/" class="md-nav__link">
+      <a href="../webhooks/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -300,7 +319,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/sandbox_access/" class="md-nav__link">
+      <a href="../sandbox_access/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -330,6 +349,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -341,8 +362,70 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+<h1 id="estimation-time-and-fees">Estimation (time and fees)</h1>
+<p>To provide users with a convenient solution, we've implemented an endpoint designed to offer estimations for both time and fees. This allows users to gauge potential costs and delivery times without the need to initiate the order creation process.</p>
+<p>To try the estimation, you will need to make an HTTP POST request to the following endpoint:</p>
+<pre><code>http://api.armadadelivery.com/v0/deliveries/estimate`
+</code></pre>
+<blockquote>
+<p>For the sandbox environment please use the following domain name: <code>https://9vxtmhgzrr.eu-west-1.awsapprunner.com</code></p>
+</blockquote>
+<p>The body of the request should be in JSON format and include the following parameters:</p>
+<ul>
+<li><code>branch</code>: The branch ID, Start point (Required).</li>
+<li><code>destination</code>: The final customer destination (Required):<ul>
+<li><code>latitude</code>: (Required). </li>
+<li><code>longitude</code>: (Required).</li>
+</ul>
+</li>
+</ul>
+<p>Example request:</p>
+<pre><code class="language-bash">curl --location --request POST 'https://api.armadadelivery.com/v0/deliveries/estimate' \
+--header 'Authorization: Key YOUR API KEY' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    &quot;branch&quot;: &quot;5eef2043bfa02f001c17b229&quot;,
+    &quot;destination&quot;: {
+        &quot;latitude&quot;: 29.3300,
+        &quot;longitude&quot;: 47.9085,
+    }
+}'
+</code></pre>
+<p>RESPONSE SCHEMA:</p>
+<pre><code class="language-js">{
+    deliveryFee: Number,
+    pickupEta: ISODATE,
+    deliveryEta: ISODATE,
+}
+</code></pre>
+<ul>
+<li><code>deliveryFee</code>: The trip cost.</li>
+<li><code>pickupEta</code>: Expected date and time for driver pickup. <em>(Eta: Estimated Arrival time)</em></li>
+<li><code>deliveryEta</code>: Expected date and time of arrival for the driver. <em>(Eta: Estimated Arrival time)</em></li>
+</ul>
+<p>Example response:</p>
+<pre><code class="language-js">{
+    deliveryFee: 17,
+    pickupEta: 2024-01-18T14:48:00.000Z,
+    deliveryEta: 2024-01-18T15:39:00.000Z,,
+}
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -375,10 +458,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "/", "features": [], "search": "/assets/javascripts/workers/search.c011b7c0.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.c011b7c0.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="/assets/javascripts/bundle.7389ff0e.min.js"></script>
+      <script src="../assets/javascripts/bundle.7389ff0e.min.js"></script>
       
     
   </body>

@@ -1,0 +1,677 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../estimation/">
+      
+      
+        <link rel="next" href="../order_placement/">
+      
+      
+      <link rel="icon" href="../img/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.4">
+    
+    
+      
+        <title>Branches management - Armada Public API</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.50c56a3b.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#create-branch" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Armada Public API" class="md-header__button md-logo" aria-label="Armada Public API" data-md-component="logo">
+      
+  <img src="../img/favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Armada Public API
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Branches management
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Armada Public API" class="md-nav__button md-logo" aria-label="Armada Public API" data-md-component="logo">
+      
+  <img src="../img/favicon.png" alt="logo">
+
+    </a>
+    Armada Public API
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../authentication/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Authentication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../estimation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Estimation (time and fees)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Branches management
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Branches management
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create Branch
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-all-branches" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get All Branches
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-one-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get One Branch
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update Branch
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delete-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Delete Branch
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../order_placement/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Order placement
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../webhooks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Webhooks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox_access/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sandbox access
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create Branch
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-all-branches" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get All Branches
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-one-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get One Branch
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update Branch
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delete-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Delete Branch
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Branches management</h1>
+
+<blockquote>
+<p>The merchant creation should be requested from our operations team!</p>
+</blockquote>
+<h2 id="create-branch">Create Branch</h2>
+<p>To create a branch, you will need to make an HTTP POST request to the following endpoint:</p>
+<pre><code>http://api.armadadelivery.com/v0/branches
+</code></pre>
+<blockquote>
+<p>For the sandbox environment please use the following domain name: <code>https://9vxtmhgzrr.eu-west-1.awsapprunner.com</code></p>
+</blockquote>
+<p>The body of the request should be in JSON format and include the following parameters:</p>
+<ul>
+<li><code>name</code>: The branch name, Between 2 and 40 (Required).</li>
+<li><code>phone</code>: The branch phone (Required).</li>
+<li><code>address</code>: The branch address (Required):<ul>
+<li><code>latitude</code>: (Required). </li>
+<li><code>longitude</code>: (Required).</li>
+</ul>
+</li>
+</ul>
+<p>Example request:</p>
+<pre><code class="language-bash">curl --location --request POST 'https://api.armadadelivery.com/v0/branches' \
+--header 'Authorization: Key YOUR API KEY' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    &quot;name&quot;: &quot;Arabian Flavors&quot;,
+    &quot;phone&quot;: &quot;+96555551234&quot;,
+    &quot;address&quot;: {
+        &quot;latitude&quot;: 29.3759,
+        &quot;longitude&quot;: 47.9774,
+    }
+}'
+</code></pre>
+<p>The response will include the details from your request body, along with the <code>_id</code> and <code>apiKey</code> associated with the branch.</p>
+<p>RESPONSE SCHEMA:</p>
+<pre><code>{
+    _id: string,
+    address: {
+        latitude: &lt;branch_latitude&gt;,
+        longitude: &lt;branch_longitude&gt;,
+    },
+    phone: string,
+    name: string
+    apiKey: string
+}
+</code></pre>
+<h2 id="get-all-branches">Get All Branches</h2>
+<p>To get all branches, you will need to make an HTTP GET request to the following endpoint:</p>
+<pre><code>http://api.armadadelivery.com/v0/branches
+</code></pre>
+<p>Example request:</p>
+<pre><code class="language-bash">curl --location --request GET 'https://api.armadadelivery.com/v0/branches' \
+--header 'Authorization: Key YOUR API KEY'
+</code></pre>
+<p>You will get an array of data.</p>
+<p>RESPONSE SCHEMA:</p>
+<pre><code>[{
+    _id: string,
+    address: {
+        latitude: &lt;branch_latitude&gt;,
+        longitude: &lt;branch_longitude&gt;,
+    },
+    phone: string,
+    name: string
+    apiKey: string
+}]
+</code></pre>
+<h2 id="get-one-branch">Get One Branch</h2>
+<p>To get one branch, you will need to make an HTTP GET request to the following endpoint:</p>
+<pre><code>http://api.armadadelivery.com/v0/branches/:id
+</code></pre>
+<p>The <code>id</code> param is required.</p>
+<p>Example request:</p>
+<pre><code class="language-bash">curl --location --request GET 'https://api.armadadelivery.com/v0/branches/5eef2043bfa02f001c17b229' \
+--header 'Authorization: Key YOUR API KEY'
+</code></pre>
+<p>RESPONSE SCHEMA:</p>
+<pre><code>{
+    _id: string,
+    address: {
+        latitude: &lt;branch_latitude&gt;,
+        longitude: &lt;branch_longitude&gt;,
+    },
+    phone: string,
+    name: string
+    apiKey: string
+}
+</code></pre>
+<h2 id="update-branch">Update Branch</h2>
+<p>To update a branch, you will need to make an HTTP PUT request to the following endpoint:</p>
+<pre><code>http://api.armadadelivery.com/v0/branches/:id
+</code></pre>
+<p>The <code>id</code> param is required.</p>
+<p>The body of the request should be in JSON format and include one of the following parameters:</p>
+<ul>
+<li><code>name</code>: The branch name, Between 2 and 40 (Optional).</li>
+<li><code>phone</code>: The branch phone (Optional).</li>
+<li><code>address</code>: The branch address (Optional):<ul>
+<li><code>latitude</code>: (Required for address change). </li>
+<li><code>longitude</code>: (Required for address change).</li>
+</ul>
+</li>
+</ul>
+<p>Example request:</p>
+<pre><code class="language-bash">curl --location --request PUT 'https://api.armadadelivery.com/v0/branches/5eef2043bfa02f001c17b229' \
+--header 'Authorization: Key YOUR API KEY' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    &quot;name&quot;: &quot;Alhambra Grill&quot;,
+}'
+</code></pre>
+<p>RESPONSE SCHEMA:</p>
+<pre><code>{
+    _id: string,
+    address: {
+        latitude: &lt;branch_latitude&gt;,
+        longitude: &lt;branch_longitude&gt;,
+    },
+    phone: string,
+    name: string
+    apiKey: string
+}
+</code></pre>
+<h2 id="delete-branch">Delete Branch</h2>
+<p>To delete a branch, you will need to make an HTTP DELETE request to the following endpoint:</p>
+<pre><code>http://api.armadadelivery.com/v0/branches/:id
+</code></pre>
+<p>The <code>id</code> param is required.</p>
+<p>If successful, expect a response with HTTP <code>status</code> code <code>204</code>.</p>
+<p>Example request:</p>
+<pre><code class="language-bash">curl --location --request DELETE 'https://api.armadadelivery.com/v0/branches/5eef2043bfa02f001c17b229' \
+--header 'Authorization: Key YOUR API KEY'
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2016 - 2024 Armada Delivery Solutions
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.c011b7c0.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.7389ff0e.min.js"></script>
+      
+    
+  </body>
+</html>

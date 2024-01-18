@@ -9,18 +9,22 @@
       
       
       
+        <link rel="prev" href="../order_placement/">
       
       
-      <link rel="icon" href="/img/favicon.png">
+        <link rel="next" href="../sandbox_access/">
+      
+      
+      <link rel="icon" href="../img/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.4">
     
     
       
-        <title>Armada Public API</title>
+        <title>Webhooks - Armada Public API</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.50c56a3b.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.50c56a3b.min.css">
       
       
 
@@ -39,7 +43,7 @@
       
     
     
-    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -57,6 +61,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#webhooks" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -69,9 +78,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/." title="Armada Public API" class="md-header__button md-logo" aria-label="Armada Public API" data-md-component="logo">
+    <a href=".." title="Armada Public API" class="md-header__button md-logo" aria-label="Armada Public API" data-md-component="logo">
       
-  <img src="/img/favicon.png" alt="logo">
+  <img src="../img/favicon.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -88,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Webhooks
             
           </span>
         </div>
@@ -163,9 +172,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="Armada Public API" class="md-nav__button md-logo" aria-label="Armada Public API" data-md-component="logo">
+    <a href=".." title="Armada Public API" class="md-nav__button md-logo" aria-label="Armada Public API" data-md-component="logo">
       
-  <img src="/img/favicon.png" alt="logo">
+  <img src="../img/favicon.png" alt="logo">
 
     </a>
     Armada Public API
@@ -180,7 +189,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -200,7 +209,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/authentication/" class="md-nav__link">
+      <a href="../authentication/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -220,7 +229,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/estimation/" class="md-nav__link">
+      <a href="../estimation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -240,7 +249,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/branches_management/" class="md-nav__link">
+      <a href="../branches_management/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -260,7 +269,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/order_placement/" class="md-nav__link">
+      <a href="../order_placement/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -277,10 +286,28 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/webhooks/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Webhooks
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -289,6 +316,48 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#webhooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Webhooks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Webhooks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -300,7 +369,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/sandbox_access/" class="md-nav__link">
+      <a href="../sandbox_access/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -331,6 +400,38 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#webhooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Webhooks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Webhooks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -341,8 +442,57 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+  <h1>Webhooks</h1>
+
+<h2 id="webhooks">Webhooks</h2>
+<p>To receive real-time updates on the status of orders placed through your app, you can provide a webhook URL in the Armada delivery Merchant UI. Our API will send a POST request to this URL any time the status of an order changes.</p>
+<p>The list of the statuses:</p>
+<ul>
+<li><code>pending</code>: the order has been received and is waiting to be dispatched to a driver</li>
+<li><code>dispatched</code>: the order has been dispatched to a driver who is on his way to the merchant</li>
+<li><code>en route</code>: the order has been picked up from the merchant and is being delivered to the customer</li>
+<li><code>complete</code>: the order has been successfully delivered</li>
+<li><code>canceled</code>: the order has been canceled from the merchant</li>
+<li><code>failed</code>: the order has failed to find a driver</li>
+</ul>
+<h3 id="response">Response</h3>
+<ul>
+<li><code>code</code>: The Id Of the delivery within Armada,</li>
+<li><code>deliveryFee</code>: The cost of the Delivery,</li>
+<li><code>amount</code>: The order Amount of the order set by the merchant,</li>
+<li><code>customerAddress</code>: The customer Address generated by Armada based on the data sent by the Platform,</li>
+<li><code>customerLocation</code>: The customer Location { latitude: '', longitude: '' } based on the data sent by the platform,</li>
+<li><code>customerName</code>: Customer Name,</li>
+<li><code>customerPhone</code>: Customer Phone,</li>
+<li><code>orderStatus</code>: The Order Status,</li>
+<li><code>estimatedDistance</code>: Estimated Distance from the pick up to the customer location in Meters,</li>
+<li><code>estimatedDuration</code>: Estimated Duration from the pick up to the customer location in Seconds,</li>
+<li><code>driver</code>: An object containing the driver name and phone number.</li>
+<li><code>trackingLink</code>: A link to a public Page showing a live of the delivery progress,</li>
+<li><code>qrCodeLink</code>: A link to the QR code, to show to the driver, to scan the delivery in case the scan is not performed within the merchant dasboard,</li>
+<li><code>orderCreatedAt</code>: Date of the Delivery Creation,</li>
+<li><code>currency</code>: The currency used for this delivery.</li>
+</ul>
+<p>In headers:</p>
+<ul>
+<li><code>Authorization</code>: The value of your order-webhook-key you provide when you create the order.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -375,10 +525,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "/", "features": [], "search": "/assets/javascripts/workers/search.c011b7c0.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.c011b7c0.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="/assets/javascripts/bundle.7389ff0e.min.js"></script>
+      <script src="../assets/javascripts/bundle.7389ff0e.min.js"></script>
       
     
   </body>
