@@ -8,29 +8,38 @@ To create a branch, you will need to make an HTTP POST request to the following 
 http://api.armadadelivery.com/v0/branches
 ```
 
-> For the sandbox environment please use the following domain name: `https://9vxtmhgzrr.eu-west-1.awsapprunner.com`
+> To test your work on the sandbox or staging API, please refer to the [Testing Environments ](/sandbox_access) section for detailed instructions.
 
 The body of the request should be in JSON format and include the following parameters:
 
-* `name`: The branch name, Between 2 and 40 (Required).
-* `phone`: The branch phone (Required).
-* `address`: The branch address (Required):
-    - `latitude`: (Required). 
-    - `longitude`: (Required).
+* `name`: Branch name, Between 2 and 40 (String - Required).
+* `phone`: Branch phone number (String - Required).
+* `address`: The branch address (Object Required):
+    - `locations`: Geo-Locations address (Object Required):
+        - `latitude`: (Float Required). 
+        - `longitude`: (Float Required).
+    - `firstLine`: A Complete Regular Address, It’s important for drivers as a human readable address (String - Optional).
+
+> Note 💡
+
+> If you don't specify a `firstLine`, We will create it using the nearest location in our databases. However, keep in mind that the automatically generated address may not be entirely accurate. For better precision, consider providing specific details whenever possible.
 
 Example request:
 
 ```bash
 curl --location --request POST 'https://api.armadadelivery.com/v0/branches' \
---header 'Authorization: Key YOUR API KEY' \
+--header 'Authorization: Key [YOUR API KEY]' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "name": "Arabian Flavors",
-    "phone": "+96555551234",
+    "name": "NAQSH",
+    "phone": "+96500000000",
     "address": {
-        "latitude": 29.3759,
-        "longitude": 47.9774,
-    }
+        "location":{
+	        "latitude": 29.192375,
+	        "longitude": 48.111894,
+	},
+        "firstLine": "Abu Hassaniah, Block 10, St 60, 36B",
+    },
 }'
 ```
 
@@ -41,8 +50,11 @@ RESPONSE SCHEMA:
 {
 	_id: string,
 	address: {
-		latitude: <branch_latitude>,
-		longitude: <branch_longitude>,
+	  locations:{
+		  latitude: <branch_latitude>,
+		  longitude: <branch_longitude>,
+	  },
+	  firstLine: string
 	},
 	phone: string,
 	name: string
@@ -62,7 +74,7 @@ Example request:
 
 ```bash
 curl --location --request GET 'https://api.armadadelivery.com/v0/branches' \
---header 'Authorization: Key YOUR API KEY'
+--header 'Authorization: Key [YOUR API KEY]'
 ```
 
 You will get an array of data.
@@ -72,8 +84,11 @@ RESPONSE SCHEMA:
 [{
 	_id: string,
 	address: {
-		latitude: <branch_latitude>,
-		longitude: <branch_longitude>,
+	  locations:{
+		  latitude: <branch_latitude>,
+		  longitude: <branch_longitude>,
+	  },
+	  firstLine: string
 	},
 	phone: string,
 	name: string
@@ -95,7 +110,7 @@ Example request:
 
 ```bash
 curl --location --request GET 'https://api.armadadelivery.com/v0/branches/5eef2043bfa02f001c17b229' \
---header 'Authorization: Key YOUR API KEY'
+--header 'Authorization: Key [YOUR API KEY]'
 ```
 
 RESPONSE SCHEMA:
@@ -103,8 +118,11 @@ RESPONSE SCHEMA:
 {
 	_id: string,
 	address: {
-		latitude: <branch_latitude>,
-		longitude: <branch_longitude>,
+	  locations:{
+		  latitude: <branch_latitude>,
+		  longitude: <branch_longitude>,
+	  },
+	  firstLine: string
 	},
 	phone: string,
 	name: string
@@ -124,17 +142,19 @@ The `id` param is required.
 
 The body of the request should be in JSON format and include one of the following parameters:
 
-* `name`: The branch name, Between 2 and 40 (Optional).
-* `phone`: The branch phone (Optional).
-* `address`: The branch address (Optional):
-    - `latitude`: (Required for address change). 
-    - `longitude`: (Required for address change).
+* `name`: Branch name, Between 2 and 40 (String - Optional).
+* `phone`: Branch phone number (String - Optional).
+* `address`: The branch address (Object Optional):
+    - `locations`: Geo-Locations address (Object Optional):
+        - `latitude`: (Float Required). 
+        - `longitude`: (Float Required).
+    - `firstLine`: A Complete Regular Address, It’s important for drivers as a human readable address (String - Optional).
 
 Example request:
 
 ```bash
 curl --location --request PUT 'https://api.armadadelivery.com/v0/branches/5eef2043bfa02f001c17b229' \
---header 'Authorization: Key YOUR API KEY' \
+--header 'Authorization: Key [YOUR API KEY]' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "name": "Alhambra Grill",
@@ -146,8 +166,11 @@ RESPONSE SCHEMA:
 {
 	_id: string,
 	address: {
-		latitude: <branch_latitude>,
-		longitude: <branch_longitude>,
+	  locations:{
+		  latitude: <branch_latitude>,
+		  longitude: <branch_longitude>,
+	  },
+	  firstLine: string
 	},
 	phone: string,
 	name: string
@@ -171,5 +194,5 @@ Example request:
 
 ```bash
 curl --location --request DELETE 'https://api.armadadelivery.com/v0/branches/5eef2043bfa02f001c17b229' \
---header 'Authorization: Key YOUR API KEY'
+--header 'Authorization: Key [YOUR API KEY]'
 ```

@@ -373,7 +373,7 @@
         
   
   <span class="md-ellipsis">
-    Sandbox access
+    Testing Environments
   </span>
   
 
@@ -470,7 +470,13 @@
 <li><code>orderStatus</code>: The Order Status,</li>
 <li><code>estimatedDistance</code>: Estimated Distance from the pick up to the customer location in Meters,</li>
 <li><code>estimatedDuration</code>: Estimated Duration from the pick up to the customer location in Seconds,</li>
-<li><code>driver</code>: An object containing the driver name and phone number.</li>
+<li><code>driver</code>: An object containing the driver information.<ul>
+<li><code>name</code>: String.</li>
+<li><code>phoneNumber</code>: String.</li>
+<li><code>latitude</code>: Number.</li>
+<li><code>longitude</code>: Number.</li>
+</ul>
+</li>
 <li><code>trackingLink</code>: A link to a public Page showing a live of the delivery progress,</li>
 <li><code>qrCodeLink</code>: A link to the QR code, to show to the driver, to scan the delivery in case the scan is not performed within the merchant dasboard,</li>
 <li><code>orderCreatedAt</code>: Date of the Delivery Creation,</li>

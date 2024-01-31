@@ -23,7 +23,11 @@ The list of the statuses:
 * `orderStatus`: The Order Status,
 * `estimatedDistance`: Estimated Distance from the pick up to the customer location in Meters,
 * `estimatedDuration`: Estimated Duration from the pick up to the customer location in Seconds,
-* `driver`: An object containing the driver name and phone number.
+* `driver`: An object containing the driver information.
+    - `name`: String.
+    - `phoneNumber`: String.
+    - `latitude`: Number.
+    - `longitude`: Number.
 * `trackingLink`: A link to a public Page showing a live of the delivery progress,
 * `qrCodeLink`: A link to the QR code, to show to the driver, to scan the delivery in case the scan is not performed within the merchant dasboard,
 * `orderCreatedAt`: Date of the Delivery Creation,

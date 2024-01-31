@@ -6,7 +6,7 @@ To place an order, you will need to make an HTTP POST request to the following e
 http://api.armadadelivery.com/v0/deliveries
 ```
 
-For the sandbox environment please use the following domain name: `https://9vxtmhgzrr.eu-west-1.awsapprunner.com`
+> To test your work on the sandbox or staging API, please refer to the [Testing Environments ](/sandbox_access) section for detailed instructions.
 
 The body of the request should be in JSON format and include the following parameters:
 
@@ -37,7 +37,7 @@ Example request:
 
 ```bash
 curl --location --request POST 'https://api.armadadelivery.com/v0/deliveries' \
---header 'Authorization: Key YOUR API KEY' \
+--header 'Authorization: Key [YOUR API KEY]' \
 --header 'order-webhook-key: vE6gH8Rt2L1sK9w' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -56,6 +56,7 @@ curl --location --request POST 'https://api.armadadelivery.com/v0/deliveries' \
 }'
 ```
 
+🇸🇦
 For Saudi Arabia users, You'll need to provide the `shortAdress` property to set the customer location:
 
 * `shortAddress`: The short address version of the national-address (Required).
@@ -66,7 +67,7 @@ Example request:
 
 ```bash
 curl --location --request POST 'https://api.armadadelivery.com/v0/deliveries' \
---header 'Authorization: Key YOUR API KEY' \
+--header 'Authorization: Key [YOUR API KEY]' \
 --header 'order-webhook-key: vE6gH8Rt2L1sK9w' \
 --header 'Content-Type: application/json' \
 --data-raw '{

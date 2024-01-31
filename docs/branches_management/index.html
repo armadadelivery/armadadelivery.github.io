@@ -394,7 +394,7 @@
         
   
   <span class="md-ellipsis">
-    Sandbox access
+    Testing Environments
   </span>
   
 
@@ -497,29 +497,40 @@
 <pre><code>http://api.armadadelivery.com/v0/branches
 </code></pre>
 <blockquote>
-<p>For the sandbox environment please use the following domain name: <code>https://9vxtmhgzrr.eu-west-1.awsapprunner.com</code></p>
+<p>To test your work on the sandbox or staging API, please refer to the <a href="/sandbox_access">Testing Environments </a> section for detailed instructions.</p>
 </blockquote>
 <p>The body of the request should be in JSON format and include the following parameters:</p>
 <ul>
-<li><code>name</code>: The branch name, Between 2 and 40 (Required).</li>
-<li><code>phone</code>: The branch phone (Required).</li>
-<li><code>address</code>: The branch address (Required):<ul>
-<li><code>latitude</code>: (Required). </li>
-<li><code>longitude</code>: (Required).</li>
+<li><code>name</code>: Branch name, Between 2 and 40 (String - Required).</li>
+<li><code>phone</code>: Branch phone number (String - Required).</li>
+<li><code>address</code>: The branch address (Object Required):<ul>
+<li><code>locations</code>: Geo-Locations address (Object Required):<ul>
+<li><code>latitude</code>: (Float Required). </li>
+<li><code>longitude</code>: (Float Required).</li>
+</ul>
+</li>
+<li><code>firstLine</code>: A Complete Regular Address, It’s important for drivers as a human readable address (String - Optional).</li>
 </ul>
 </li>
 </ul>
+<blockquote>
+<p>Note 💡</p>
+<p>If you don't specify a <code>firstLine</code>, We will create it using the nearest location in our databases. However, keep in mind that the automatically generated address may not be entirely accurate. For better precision, consider providing specific details whenever possible.</p>
+</blockquote>
 <p>Example request:</p>
 <pre><code class="language-bash">curl --location --request POST 'https://api.armadadelivery.com/v0/branches' \
---header 'Authorization: Key YOUR API KEY' \
+--header 'Authorization: Key [YOUR API KEY]' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    &quot;name&quot;: &quot;Arabian Flavors&quot;,
-    &quot;phone&quot;: &quot;+96555551234&quot;,
+    &quot;name&quot;: &quot;NAQSH&quot;,
+    &quot;phone&quot;: &quot;+96500000000&quot;,
     &quot;address&quot;: {
-        &quot;latitude&quot;: 29.3759,
-        &quot;longitude&quot;: 47.9774,
-    }
+        &quot;location&quot;:{
+            &quot;latitude&quot;: 29.192375,
+            &quot;longitude&quot;: 48.111894,
+    },
+        &quot;firstLine&quot;: &quot;Abu Hassaniah, Block 10, St 60, 36B&quot;,
+    },
 }'
 </code></pre>
 <p>The response will include the details from your request body, along with the <code>_id</code> and <code>apiKey</code> associated with the branch.</p>
@@ -527,8 +538,11 @@
 <pre><code>{
     _id: string,
     address: {
-        latitude: &lt;branch_latitude&gt;,
-        longitude: &lt;branch_longitude&gt;,
+      locations:{
+          latitude: &lt;branch_latitude&gt;,
+          longitude: &lt;branch_longitude&gt;,
+      },
+      firstLine: string
     },
     phone: string,
     name: string
@@ -541,15 +555,18 @@
 </code></pre>
 <p>Example request:</p>
 <pre><code class="language-bash">curl --location --request GET 'https://api.armadadelivery.com/v0/branches' \
---header 'Authorization: Key YOUR API KEY'
+--header 'Authorization: Key [YOUR API KEY]'
 </code></pre>
 <p>You will get an array of data.</p>
 <p>RESPONSE SCHEMA:</p>
 <pre><code>[{
     _id: string,
     address: {
-        latitude: &lt;branch_latitude&gt;,
-        longitude: &lt;branch_longitude&gt;,
+      locations:{
+          latitude: &lt;branch_latitude&gt;,
+          longitude: &lt;branch_longitude&gt;,
+      },
+      firstLine: string
     },
     phone: string,
     name: string
@@ -563,14 +580,17 @@
 <p>The <code>id</code> param is required.</p>
 <p>Example request:</p>
 <pre><code class="language-bash">curl --location --request GET 'https://api.armadadelivery.com/v0/branches/5eef2043bfa02f001c17b229' \
---header 'Authorization: Key YOUR API KEY'
+--header 'Authorization: Key [YOUR API KEY]'
 </code></pre>
 <p>RESPONSE SCHEMA:</p>
 <pre><code>{
     _id: string,
     address: {
-        latitude: &lt;branch_latitude&gt;,
-        longitude: &lt;branch_longitude&gt;,
+      locations:{
+          latitude: &lt;branch_latitude&gt;,
+          longitude: &lt;branch_longitude&gt;,
+      },
+      firstLine: string
     },
     phone: string,
     name: string
@@ -584,17 +604,21 @@
 <p>The <code>id</code> param is required.</p>
 <p>The body of the request should be in JSON format and include one of the following parameters:</p>
 <ul>
-<li><code>name</code>: The branch name, Between 2 and 40 (Optional).</li>
-<li><code>phone</code>: The branch phone (Optional).</li>
-<li><code>address</code>: The branch address (Optional):<ul>
-<li><code>latitude</code>: (Required for address change). </li>
-<li><code>longitude</code>: (Required for address change).</li>
+<li><code>name</code>: Branch name, Between 2 and 40 (String - Optional).</li>
+<li><code>phone</code>: Branch phone number (String - Optional).</li>
+<li><code>address</code>: The branch address (Object Optional):<ul>
+<li><code>locations</code>: Geo-Locations address (Object Optional):<ul>
+<li><code>latitude</code>: (Float Required). </li>
+<li><code>longitude</code>: (Float Required).</li>
+</ul>
+</li>
+<li><code>firstLine</code>: A Complete Regular Address, It’s important for drivers as a human readable address (String - Optional).</li>
 </ul>
 </li>
 </ul>
 <p>Example request:</p>
 <pre><code class="language-bash">curl --location --request PUT 'https://api.armadadelivery.com/v0/branches/5eef2043bfa02f001c17b229' \
---header 'Authorization: Key YOUR API KEY' \
+--header 'Authorization: Key [YOUR API KEY]' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     &quot;name&quot;: &quot;Alhambra Grill&quot;,
@@ -604,8 +628,11 @@
 <pre><code>{
     _id: string,
     address: {
-        latitude: &lt;branch_latitude&gt;,
-        longitude: &lt;branch_longitude&gt;,
+      locations:{
+          latitude: &lt;branch_latitude&gt;,
+          longitude: &lt;branch_longitude&gt;,
+      },
+      firstLine: string
     },
     phone: string,
     name: string
@@ -620,7 +647,7 @@
 <p>If successful, expect a response with HTTP <code>status</code> code <code>204</code>.</p>
 <p>Example request:</p>
 <pre><code class="language-bash">curl --location --request DELETE 'https://api.armadadelivery.com/v0/branches/5eef2043bfa02f001c17b229' \
---header 'Authorization: Key YOUR API KEY'
+--header 'Authorization: Key [YOUR API KEY]'
 </code></pre>
 
 

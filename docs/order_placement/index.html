@@ -406,7 +406,7 @@
         
   
   <span class="md-ellipsis">
-    Sandbox access
+    Testing Environments
   </span>
   
 
@@ -517,7 +517,9 @@
 <p>To place an order, you will need to make an HTTP POST request to the following endpoint:</p>
 <pre><code>http://api.armadadelivery.com/v0/deliveries
 </code></pre>
-<p>For the sandbox environment please use the following domain name: <code>https://9vxtmhgzrr.eu-west-1.awsapprunner.com</code></p>
+<blockquote>
+<p>To test your work on the sandbox or staging API, please refer to the <a href="/sandbox_access">Testing Environments </a> section for detailed instructions.</p>
+</blockquote>
 <p>The body of the request should be in JSON format and include the following parameters:</p>
 <ul>
 <li><code>platformName</code>: refer to the platform creating the delivery (Required).</li>
@@ -548,7 +550,7 @@
 </blockquote>
 <p>Example request:</p>
 <pre><code class="language-bash">curl --location --request POST 'https://api.armadadelivery.com/v0/deliveries' \
---header 'Authorization: Key YOUR API KEY' \
+--header 'Authorization: Key [YOUR API KEY]' \
 --header 'order-webhook-key: vE6gH8Rt2L1sK9w' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -566,7 +568,8 @@
     }
 }'
 </code></pre>
-<p>For Saudi Arabia users, You'll need to provide the <code>shortAdress</code> property to set the customer location:</p>
+<p>🇸🇦
+For Saudi Arabia users, You'll need to provide the <code>shortAdress</code> property to set the customer location:</p>
 <ul>
 <li><code>shortAddress</code>: The short address version of the national-address (Required).</li>
 </ul>
@@ -575,7 +578,7 @@
 </blockquote>
 <p>Example request:</p>
 <pre><code class="language-bash">curl --location --request POST 'https://api.armadadelivery.com/v0/deliveries' \
---header 'Authorization: Key YOUR API KEY' \
+--header 'Authorization: Key [YOUR API KEY]' \
 --header 'order-webhook-key: vE6gH8Rt2L1sK9w' \
 --header 'Content-Type: application/json' \
 --data-raw '{

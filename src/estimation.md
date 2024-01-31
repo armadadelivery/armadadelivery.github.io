@@ -6,10 +6,10 @@ To provide users with a convenient solution, we've implemented an endpoint desig
 To try the estimation, you will need to make an HTTP POST request to the following endpoint:
 
 ```
-http://api.armadadelivery.com/v0/deliveries/estimate`
+http://api.armadadelivery.com/v0/deliveries/estimate
 ```
 
-> For the sandbox environment please use the following domain name: `https://9vxtmhgzrr.eu-west-1.awsapprunner.com`
+> To test your work on the sandbox or staging API, please refer to the [Testing Environments ](/sandbox_access) section for detailed instructions.
 
 The body of the request should be in JSON format and include the following parameters:
 
@@ -22,7 +22,7 @@ Example request:
 
 ```bash
 curl --location --request POST 'https://api.armadadelivery.com/v0/deliveries/estimate' \
---header 'Authorization: Key YOUR API KEY' \
+--header 'Authorization: Key [YOUR API KEY]' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "branch": "5eef2043bfa02f001c17b229",
@@ -50,7 +50,7 @@ Example response:
 ```js
 {
 	deliveryFee: 17,
-	pickupEta: 2024-01-18T14:48:00.000Z,
-	deliveryEta: 2024-01-18T15:39:00.000Z,,
+	pickupEta: "2024-01-18T14:48:00.000Z",
+	deliveryEta: "2024-01-18T15:39:00.000Z"
 }
 ```

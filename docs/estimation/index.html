@@ -323,7 +323,7 @@
         
   
   <span class="md-ellipsis">
-    Sandbox access
+    Testing Environments
   </span>
   
 
@@ -368,10 +368,10 @@
 <h1 id="estimation-time-and-fees">Estimation (time and fees)</h1>
 <p>To provide users with a convenient solution, we've implemented an endpoint designed to offer estimations for both time and fees. This allows users to gauge potential costs and delivery times without the need to initiate the order creation process.</p>
 <p>To try the estimation, you will need to make an HTTP POST request to the following endpoint:</p>
-<pre><code>http://api.armadadelivery.com/v0/deliveries/estimate`
+<pre><code>http://api.armadadelivery.com/v0/deliveries/estimate
 </code></pre>
 <blockquote>
-<p>For the sandbox environment please use the following domain name: <code>https://9vxtmhgzrr.eu-west-1.awsapprunner.com</code></p>
+<p>To test your work on the sandbox or staging API, please refer to the <a href="/sandbox_access">Testing Environments </a> section for detailed instructions.</p>
 </blockquote>
 <p>The body of the request should be in JSON format and include the following parameters:</p>
 <ul>
@@ -384,7 +384,7 @@
 </ul>
 <p>Example request:</p>
 <pre><code class="language-bash">curl --location --request POST 'https://api.armadadelivery.com/v0/deliveries/estimate' \
---header 'Authorization: Key YOUR API KEY' \
+--header 'Authorization: Key [YOUR API KEY]' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     &quot;branch&quot;: &quot;5eef2043bfa02f001c17b229&quot;,
@@ -409,8 +409,8 @@
 <p>Example response:</p>
 <pre><code class="language-js">{
     deliveryFee: 17,
-    pickupEta: 2024-01-18T14:48:00.000Z,
-    deliveryEta: 2024-01-18T15:39:00.000Z,,
+    pickupEta: &quot;2024-01-18T14:48:00.000Z&quot;,
+    deliveryEta: &quot;2024-01-18T15:39:00.000Z&quot;
 }
 </code></pre>
 
