@@ -15,7 +15,7 @@ The body of the request should be in JSON format and include the following param
 * `name`: Branch name, Between 2 and 40 (String - Required).
 * `phone`: Branch phone number (String - Required).
 * `address`: The branch address (Object Required):
-    - `locations`: Geo-Locations address (Object Required):
+    - `location`: Geo-location address (Object Required):
         - `latitude`: (Float Required). 
         - `longitude`: (Float Required).
     - `firstLine`: A Complete Regular Address, It’s important for drivers as a human readable address (String - Optional).
@@ -50,7 +50,7 @@ RESPONSE SCHEMA:
 {
 	_id: string,
 	address: {
-	  locations:{
+	  location:{
 		  latitude: <branch_latitude>,
 		  longitude: <branch_longitude>,
 	  },
@@ -84,7 +84,7 @@ RESPONSE SCHEMA:
 [{
 	_id: string,
 	address: {
-	  locations:{
+	  location:{
 		  latitude: <branch_latitude>,
 		  longitude: <branch_longitude>,
 	  },
@@ -118,7 +118,7 @@ RESPONSE SCHEMA:
 {
 	_id: string,
 	address: {
-	  locations:{
+	  location:{
 		  latitude: <branch_latitude>,
 		  longitude: <branch_longitude>,
 	  },
@@ -145,7 +145,7 @@ The body of the request should be in JSON format and include one of the followin
 * `name`: Branch name, Between 2 and 40 (String - Optional).
 * `phone`: Branch phone number (String - Optional).
 * `address`: The branch address (Object Optional):
-    - `locations`: Geo-Locations address (Object Optional):
+    - `location`: Geo-location address (Object Optional):
         - `latitude`: (Float Required). 
         - `longitude`: (Float Required).
     - `firstLine`: A Complete Regular Address, It’s important for drivers as a human readable address (String - Optional).
@@ -166,7 +166,7 @@ RESPONSE SCHEMA:
 {
 	_id: string,
 	address: {
-	  locations:{
+	  location:{
 		  latitude: <branch_latitude>,
 		  longitude: <branch_longitude>,
 	  },
